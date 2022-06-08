@@ -1,8 +1,7 @@
 body, html {
   height: 100%;
-  background: linear-gradient(91deg, #fbfbfb, #efefef);
+  position: relative;
   font-family: 'Montserrat', sans-serif, Arial;
-  overflow: hidden;
 }
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   width: 100%;
@@ -23,42 +22,48 @@ button, a, input, form {
   padding: 5px;
   z-index: 5;
   color: #fff;
+  background: linear-gradient(180deg, #20202000, #0000001c);
 }
-#nav_id:after {
+
+/* #nav_id:after {
   content: "";
   width: 100%;
-  height: 100%;
-  background: #808080;
+  height: 2.25vw;
+  background: linear-gradient(180deg, #20202017, #00000045);
   position: absolute;
   opacity: 0.3;
   top: 0;
   left: 0;
-  z-index: -1;
-}
+   z-index: -1;
+} */
 
 #nav_id .li_cls {
   list-style: none;
   float: left;
-  width: calc(100% / 5);
+  width: auto;
   text-align: center;
   padding: 0;
-  margin: 0;
+  margin: 0 calc(90% / 15);
   cursor: pointer;
   position: relative;
+  font-size: 0.9125vw;
 }
 
-#nav_id .li_cls.active:after {
+#nav_id .li_cls:after {
   content: "";
-  width: 50%;
   height: 1px;
   background: #000;
   position: absolute;
   left: 0;
   bottom: -0.5px;
+  width: 0;
   transition: 0.3s ease-in-out;
-  transform: translate(50%, 50%);
 }
 
+#nav_id .li_cls.active:after {
+  width: calc(100% + 10px);
+  transform: translate(-5px, 0);
+}
 
 #nav_id li button:after, #nav_id li:hover a:after {
   transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
@@ -110,6 +115,9 @@ button, a, input, form {
   float: left;
   color: #fff;
   z-index: 2;
+}
+#ui_wrapper {
+  top: calc(1vw + 30px);
 }
 .header-text, .contents-new {
   position: relative;
@@ -209,4 +217,99 @@ img.responsive-img {
   padding: 2.5px;
 }
 
+.container_cust {
+  width: 75vw;
+  margin: auto;
+}
 
+/* First Section */ 
+.section_cls {
+  height: 50%;
+  position: relative;
+  background-size: 100%;
+}
+
+#section_1:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 60%;
+  /* background: url('../images/bg-images/section_1_bg.jpg'); */
+  background-size: 100%;
+  filter: brightness(0.95);
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-position: 0% 40%;
+}
+
+#title_wrapper {
+  padding-top: 10vh;
+  text-align: right;
+  padding-right: 2.5vw;
+}
+
+#title_wrapper h1 {
+  font-size: 2vw;
+}
+
+#title_wrapper .sub_header {
+  font-size: 1.25vw;
+}
+
+#hero_imgs {
+  width: 100%;
+  position: relative;
+  float: left;
+  padding-left: 2.5vw;
+  height: 100%;
+}
+
+.img_res {
+  width: 30%;
+}
+
+#hero_imgs .img_res {
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  box-shadow: -1px 1px 1px #fff;
+}
+
+#hero_imgs #img_hero_2 {
+  left: 2vw;
+  z-index: 1;
+  top: 9vh;
+}
+
+#hero_imgs #img_hero_3 {
+  left: 4vw;
+  z-index: 2;
+  top: 8vh;
+}
+
+#hero_imgs #img_hero_4 {
+  left: 6vw;
+  z-index: 3;
+  top: 7vh;
+}
+
+#hero_imgs #img_hero_5 {
+  left: 8vw;
+  z-index: 4;
+  top: 6vh;
+}
+
+/*Section 2 */
+#section_2:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  float: left;
+  background: #3892af;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}

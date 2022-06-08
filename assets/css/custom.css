@@ -1,6 +1,6 @@
 body, html {
   height: 100%;
-  background: #110101;
+  background: linear-gradient(91deg, #fbfbfb, #efefef);
   font-family: 'Montserrat', sans-serif, Arial;
   overflow: hidden;
 }
@@ -162,7 +162,7 @@ text-transform: uppercase;
   z-index: -1;
   background-repeat: no-repeat;
 }
-.item.slick-slide[data-slick-index="0"]:after{
+/* .item.slick-slide[data-slick-index="0"]:after{
   background-image: url(../images/landscapes/beach-dawn.jpg);
 }
 .item.slick-slide[data-slick-index="1"]:after{
@@ -179,7 +179,7 @@ text-transform: uppercase;
 }
 .item.slick-slide[data-slick-index="5"]:after{
   background-image: url(../images/landscapes/coffee-maker.jpg);
-}
+} */
 .slideshow-content .items .first-div.col-sm-12 {
   min-height: 60vh;
 }
@@ -239,7 +239,6 @@ video#hero-vid {
 }
 .white-wrap h3 {
   color: #000;
-  /* text-shadow: 0px 0px 10px #fff; */
   text-shadow: 0px 0px 10px #fff;
   margin-top: 0;
 }
@@ -251,18 +250,3 @@ img.responsive-img {
 .tile-wrapper img.responsive-img {
   padding: 2.5px;
 }
-/* .tile-wrapper div {
-  padding: 2.5px;
-}
-.tile-wrapper > div:first-child {
-  padding-left: 0;
-}
-.tile-wrapper > div:first-child {
-  padding-right: 0;
-}
-.tile-wrapper .sub-items {
-  padding: 0;
-}
-.tile-wrapper .sub-items.uni-item, .tile-wrapper .sub-items div {
-  padding: 0 2.5px;
-} */

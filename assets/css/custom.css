@@ -43,7 +43,7 @@ button, a, input, form {
   width: auto;
   text-align: center;
   padding: 0;
-  margin: 0 calc(90% / 15);
+  margin: 0 calc(25% / 5);
   cursor: pointer;
   position: relative;
   font-size: 0.9125vw;
@@ -224,7 +224,7 @@ img.responsive-img {
 
 /* First Section */ 
 .section_cls {
-  height: 50%;
+  height: 60%;
   position: relative;
   background-size: 100%;
 }
@@ -245,7 +245,7 @@ img.responsive-img {
 }
 
 #title_wrapper {
-  padding-top: 10vh;
+  padding-top: 15vh;
   text-align: right;
   padding-right: 2.5vw;
 }
@@ -264,6 +264,7 @@ img.responsive-img {
   float: left;
   padding-left: 2.5vw;
   height: 100%;
+  top: 15vh;
 }
 
 .img_res {
@@ -272,33 +273,42 @@ img.responsive-img {
 
 #hero_imgs .img_res {
   position: absolute;
-  top: 10vh;
   left: 0;
   box-shadow: -1px 1px 1px #fff;
+  border-radius: 0 10px;
+  pointer-events: none;
+  transition: 0.3s ease-in-out;
+  opacity: 0;
 }
 
+
+#hero_imgs .img_res.slideInDown {
+  opacity: 1;
+}
+
+
 #hero_imgs #img_hero_2 {
-  left: 2vw;
+  left: 1.25vw;
   z-index: 1;
-  top: 9vh;
+  top: -1vh;
 }
 
 #hero_imgs #img_hero_3 {
-  left: 4vw;
+  left: 2.5vw;
   z-index: 2;
-  top: 8vh;
+  top: -2vh;
 }
 
 #hero_imgs #img_hero_4 {
-  left: 6vw;
+  left: 3.75vw;
   z-index: 3;
-  top: 7vh;
+  top: -3vh;
 }
 
 #hero_imgs #img_hero_5 {
-  left: 8vw;
+  left: 5vw;
   z-index: 4;
-  top: 6vh;
+  top: -4vh;
 }
 
 /*Section 2 */
@@ -308,10 +318,19 @@ img.responsive-img {
   width: 100%;
   height: 100%;
   float: left;
-  background: #3892af;
+  /* background: #3892af; */
   top: 0;
   left: 0;
   z-index: -1;
+  background: url('../images/bg-images/section_1_bg.jpg');
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  filter: brightness(0.5);
+}
+
+.sub_header.active {
+  border-right: 1px solid transparent;
 }
 
 .type_animate {
@@ -327,43 +346,31 @@ img.responsive-img {
   float: right;
 }
 
-.sub_header {
-  border-right: solid 3px transparent;
-  white-space: nowrap;
-  overflow: hidden;
-  font-size: 28px;
-  color: #000;
-  position: absolute;
-  right: 0;
+.sub_header.active{
+  animation: blinkTextCursor 350ms steps(7) 5 normal;
 }
 
-#sub_1 {
-  animation: animated-text 2s steps(17,end) 1s 1 normal both, animated-cursor 2s steps(17,end) 1s 1 normal both;
+@keyframes blinkTextCursor{
+  from{border-right-color: #000;}
+  to{border-right-color: transparent;}
+} 
+
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
 }
 
-#sub_2 {
-  animation: animated-text 2s steps(17,end) 2.5s 1 normal both, animated-cursor 2.5s steps(17,end) 2.5s 1 normal both;
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
 }
 
-#sub_3 {
-  animation: animated-text 3.5s steps(17,end) 3.5s 1 normal both, animated-cursor 3.5s steps(17,end) 3.5s 1 normal both;
+*::-webkit-scrollbar-track {
+  background: #ececec;
 }
 
-@keyframes animated-text{
-  from{width: 0;}
-  to{width: 300px;}
+*::-webkit-scrollbar-thumb {
+  background-color: #00000047;
 }
 
-@keyframes animated-cursor{
-  0%{border-right-color: transparent;}
-  10%{border-right-color: #000;}
-  20%{border-right-color: transparent;}
-  30%{border-right-color: #000;}
-  40%{border-right-color: transparent;}
-  50%{border-right-color: #000;}
-  60%{border-right-color: transparent;}
-  70%{border-right-color: #000;}
-  80%{border-right-color: transparent;}
-  90%{border-right-color: #000;}
-  100%{border-right-color: transparent;}
-}

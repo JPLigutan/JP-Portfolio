@@ -21,4 +21,18 @@ function animate_type(){
 animate_type();
 setInterval(animate_type, 20000)
 
+
+    $(".preset_cls").hover(function(){
+        $(".preset_cls").addClass("active")
+        // setTimeout(function(){
+        //     $(".preset_cls").removeClass("active")
+        // }, 2000)
+    })
+
+    $(".preset_cls").mouseout(function(){
+        $(".preset_cls").removeClass("active")
+        // setTimeout(function(){
+        //     $(".preset_cls").removeClass("active")
+        // }, 2000)
+    })
 })

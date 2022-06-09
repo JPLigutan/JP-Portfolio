@@ -445,7 +445,7 @@ img.responsive-img {
   float: left;
   margin: 0 5px;
   box-shadow: -1px 2px 3px #00000040;
-  cursor: pointer;
+  /* cursor: pointer; */
   transition: 1s ease-in-out;
 }
 

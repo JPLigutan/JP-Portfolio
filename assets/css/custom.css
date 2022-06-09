@@ -239,7 +239,7 @@ img.responsive-img {
 }
 
 .img_cust {
-  width: auto;
+  width: 20%;
 }
 
 .scroll_down {
@@ -252,7 +252,7 @@ img.responsive-img {
 }
 
 .scroll_down img.img_responsive {
-  width: 1.25vw;
+  width: 1.25%;
 }
 
 /* First Section */ 

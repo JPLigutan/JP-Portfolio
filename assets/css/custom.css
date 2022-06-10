@@ -551,4 +551,5 @@ img.responsive-img {
   float: left;
   height: auto;
   margin-bottom: 10px;
+  cursor: pointer;
 }

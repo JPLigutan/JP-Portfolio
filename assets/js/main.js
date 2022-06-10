@@ -20,19 +20,19 @@ $(window).on("load", function() {
     }
     animate_type();
     setInterval(animate_type, 20000)
-    $(".preset_cls").hover(function() {
-        $(".preset_cls").addClass("active")
-        // setTimeout(function(){
-        //     $(".preset_cls").removeClass("active")
-        // }, 2000)
-    })
+    // $(".preset_cls").hover(function() {
+    //     $(".preset_cls").addClass("active")
+    //     // setTimeout(function(){
+    //     //     $(".preset_cls").removeClass("active")
+    //     // }, 2000)
+    // })
 
-    $(".preset_cls").mouseout(function() {
-        $(".preset_cls").removeClass("active")
-        // setTimeout(function(){
-        //     $(".preset_cls").removeClass("active")
-        // }, 2000)
-    })
+    // $(".preset_cls").mouseout(function() {
+    //     $(".preset_cls").removeClass("active")
+    //     // setTimeout(function(){
+    //     //     $(".preset_cls").removeClass("active")
+    //     // }, 2000)
+    // })
 
     $(".li_cls, .scroll_down img").on("click", function() {
         var k = $(this).attr("data-target");
@@ -85,5 +85,10 @@ $(window).on("load", function() {
             $('[tile="3"] .tile_cls').append('<img src="assets/images/content/tile_card_' + w + '.jpg" class="img_responsive tile_imgs animated">')
         }
     }
+
+    $('.tile_imgs').draggable({ // Make cards draggable
+        stack: '.tile_imgs', // Make dragged card appear above the others
+        revert: false // Make dragged card return to start position
+      })
 })
     

@@ -1,4 +1,4 @@
-body, html {
+html, body {
   height: 100%;
   position: relative;
   font-family: 'Montserrat', sans-serif, Arial;
@@ -117,7 +117,7 @@ button, a, input, form {
   z-index: 2;
 }
 #ui_wrapper {
-  top: calc(1vw + 30px);
+  /* top: calc(1vw + 30px); */
 }
 .header-text, .contents-new {
   position: relative;
@@ -257,13 +257,22 @@ img.responsive-img {
 
 .scroll_down img.img_responsive {
   width: 1.25%;
+  cursor: pointer;
+  margin: 10px;
 }
 
 /* First Section */ 
 .section_cls {
-  min-height: 60%;
+  min-height: 65%;
   position: relative;
   background-size: 100%;
+}
+.section_cls .container_cust.animated {
+  opacity: 0; 
+}
+
+#section_1 .container_cust {
+  padding-top: 5vh;
 }
 
 #section_1:after {
@@ -332,25 +341,25 @@ img.responsive-img {
 }
 
 
-#hero_imgs #img_hero_2 {
+#hero_imgs #img_hero_2.slideInDown {
   left: 1.25vw;
   z-index: 1;
   top: -1vh;
 }
 
-#hero_imgs #img_hero_3 {
+#hero_imgs #img_hero_3.slideInDown {
   left: 2.5vw;
   z-index: 2;
   top: -2vh;
 }
 
-#hero_imgs #img_hero_4 {
+#hero_imgs #img_hero_4.slideInDown {
   left: 3.75vw;
   z-index: 3;
   top: -3vh;
 }
 
-#hero_imgs #img_hero_5 {
+#hero_imgs #img_hero_5.slideInDown {
   left: 5vw;
   z-index: 4;
   top: -4vh;
@@ -447,6 +456,8 @@ img.responsive-img {
   box-shadow: -1px 2px 3px #00000040;
   /* cursor: pointer; */
   transition: 1s ease-in-out;
+  left: 0;
+
 }
 
 .preset_cls.active {
@@ -461,3 +472,26 @@ img.responsive-img {
   height: 18vw;
   top: 0.5vw;
 }
+
+.preset_cls.pre {
+  height: auto !important;
+  top: 0 !important;
+  margin: 0;
+}
+
+#preset_wrp_1.pre {
+  left: 32%;
+}
+
+#preset_wrp_2.pre {
+  left: 16%;
+}
+
+#preset_wrp_4.pre {
+  left: -16%;
+}
+
+#preset_wrp_5.pre {
+  left: -32%;
+}
+

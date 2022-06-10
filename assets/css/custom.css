@@ -221,6 +221,7 @@ img.responsive-img {
   width: 75vw;
   margin: auto;
   position: relative;
+  height: 100%;
 }
 
 .section_title {
@@ -268,11 +269,11 @@ img.responsive-img {
   background-size: 100%;
 }
 .section_cls .container_cust.animated {
-  opacity: 0; 
+  opacity: 0;
 }
 
 #section_1 .container_cust {
-  padding-top: 5vh;
+  padding-top: 2.5vh;
 }
 
 #section_1:after {
@@ -322,7 +323,7 @@ img.responsive-img {
 }
 
 .pad_btm {
-  padding-bottom: 10vh;
+  padding-bottom: 20vh;
 }
 
 #hero_imgs .img_res {
@@ -436,6 +437,8 @@ img.responsive-img {
 .center_content {
   text-align: center;
   padding-top: 2.5vw;
+  float: left;
+  width: 100%;
 }
 
 #cnt_img_1 {
@@ -499,3 +502,34 @@ img.responsive-img {
   left: -32%;
 }
 
+/* 3rd Sectopn */
+.mntg_module {
+  position: relative;
+  float: left;
+  width: 100%;
+  padding-left: 2.5vw;
+  height: 100%;
+  padding-top: 2.5vh;
+}
+
+.mntg_cls {
+  position: relative;
+}
+
+.mntg_cls video {
+  width: calc(100% / 2);
+  height: auto;
+  position: absolute;
+  left: 0;
+  box-shadow: -3px 4px 5px #0009;
+  border-radius: 0px 10px;
+}
+
+#mntg_wrp_2 video {
+  top: 25vh;
+}
+
+#mntg_wrp_3 video {
+  top: 12.5vh;
+  left: 12.5vw;
+}

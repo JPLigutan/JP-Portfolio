@@ -533,3 +533,22 @@ img.responsive-img {
   top: 12.5vh;
   left: 12.5vw;
 }
+
+
+.tile_wrp {
+  display: flex;
+  justify-items: start;
+  margin: 5px;
+  position: relative;
+  float: left;
+  width: calc((100% / 3) - 10px);
+}
+
+
+.tile_imgs {
+  width: 100%;
+  position: relative;
+  float: left;
+  height: auto;
+  margin-bottom: 10px;
+}

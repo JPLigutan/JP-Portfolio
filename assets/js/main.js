@@ -20,20 +20,13 @@ $(window).on("load", function() {
     }
     animate_type();
     setInterval(animate_type, 20000)
-    // $(".preset_cls").hover(function() {
-    //     $(".preset_cls").addClass("active")
-    //     // setTimeout(function(){
-    //     //     $(".preset_cls").removeClass("active")
-    //     // }, 2000)
-    // })
+    $(".preset_cls").hover(function() {
+        $(".preset_cls").addClass("active")
+    })
 
-    // $(".preset_cls").mouseout(function() {
-    //     $(".preset_cls").removeClass("active")
-    //     // setTimeout(function(){
-    //     //     $(".preset_cls").removeClass("active")
-    //     // }, 2000)
-    // })
-
+    $(".preset_cls").mouseout(function() {
+        $(".preset_cls").removeClass("active")
+    })
     $(".li_cls, .scroll_down img").on("click", function() {
         var k = $(this).attr("data-target");
         $('.li_cls').removeClass("active");

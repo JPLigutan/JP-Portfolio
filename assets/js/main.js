@@ -81,7 +81,7 @@ $(window).on("load", function() {
 
     $('.tile_imgs').draggable({ // Make cards draggable
         stack: '.tile_imgs', // Make dragged card appear above the others
-        revert: false // Make dragged card return to start position
+        revert: true // Make dragged card return to start position
       })
 })
     

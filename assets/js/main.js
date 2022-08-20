@@ -1,87 +1,89 @@
-$(window).on("load", function() {
-    var t = $("#sub_1")
-        , t2 = $("#sub_2")
-        , t3 = $("#sub_3")
-        , tx = t.text()
-        , t2x = t2.text()
-        , t3x = t3.text();
-    $(".section_cls .container_cust");
-    function animate_type() {
-        var i=0;function typeWriter(){t.addClass("active"),i<tx.length&&(document.getElementById("sub_1").innerHTML+=tx.charAt(i),i++,setTimeout(typeWriter,200))}t.empty(),setTimeout(function(){typeWriter()},1200);var i2=0;function typeWriter2(){t2.addClass("active"),i2<t2x.length&&(document.getElementById("sub_2").innerHTML+=t2x.charAt(i2),i2++,setTimeout(typeWriter2,200))}t2.empty(),setTimeout(function(){typeWriter2()},3e3);var i3=0;function typeWriter3(){t3.addClass("active"),i3<t3x.length&&(document.getElementById("sub_3").innerHTML+=t3x.charAt(i3),i3++,setTimeout(typeWriter3,200))}$("#sub_3").empty(),setTimeout(function(){typeWriter3()},4800)
-        $("#hero_imgs .img_res").each(function(e) {
-            var k = $(this);
-            s = 500 + (e * 750)
-            setTimeout(function() {
-                k.addClass("slideInDown");
-            }, s);
-        })
-        $("#hero_imgs .img_res").removeClass("slideInDown");
-        $(".sub_header").removeClass("active");
-    }
-    animate_type();
-    setInterval(animate_type, 20000)
-    $(".preset_cls").hover(function() {
-        $(".preset_cls").addClass("active")
-    })
+$(window).on("load",function(){var l=$("#header_title"),i="{Hi!} {I'm JP.}";$(".section_cls .container_cust"),function(){var t=0;function e(){l.addClass("active"),t<i.length&&(document.getElementById("header_title").innerHTML+=i.charAt(t),t++,setTimeout(e,200))}l.empty(),setTimeout(function(){e()},1200);var s=[],o=0;function a(){o<s.length&&($("#"+s[o]).addClass("fadeInUp"),o++,setTimeout(a,1e3))}$(".sub_header").each(function(){s.push($(this).attr("id"))}),o=0,setTimeout(function(){a()},4300),$(".sub_header").removeClass("active")}(),$("html, body").animate({scrollTop:0},10),$(".li_cls").each(function(){$(this).removeClass("active"),-1<$(this).attr("data-target").indexOf("section_1")&&$(this).addClass("active")}),$(".preset_cls").hover(function(){$(".preset_cls").addClass("active")}),$(".preset_cls").mouseout(function(){$(".preset_cls").removeClass("active")}),$(".li_cls").on("click",function(t){var e=$(this).attr("data-target");$(".li_cls").removeClass("active"),$(this).addClass("active"),$("html, body").animate({scrollTop:$("#"+e).offset().top},500)}),$(".scroll_down img").on("click",function(){$(".hero-zoomable-grid").removeClass("active"),$("body").removeClass("no_scroll")}),$(document).on("scroll",function(){var a;a=$(window).height(),$(".section_cls").each(function(){var t=$(this),e=$("html").scrollTop()+a/2>t.offset().top,s=$("html").scrollTop()>t.offset().top+t.height(),o=$("html").scrollTop()+a<=t.offset().top;e&&(t.find(".animated_trg").removeClass("fadeOutDown").addClass("fadeInUp"),$(".li_cls").removeClass("active"),$('.li_cls[data-target="'+t.attr("id")+'"]').addClass("active"),"section_2"===t.attr("id")&&($(".preset_cls").removeClass("pre"),$("body").removeClass("no_scroll"),$(".hero-zoomable-grid").removeClass("active"))),(s||o)&&(t.find(".animated_trg").removeClass("fadeInUp").addClass("fadeOutDown"),"section_2"===t.attr("id")&&$(".preset_cls").addClass("pre"))}),$(".parallax_scroll").each(function(){var t=$(this).closest(".section_cls");$("html").scrollTop()>=t.offset().top-a/2?(t=Math.min(Math.max($("html").scrollTop()/t.offset().top)),$(this).css("--parallax-scroll",t)):$(this).removeAttr("--parallax-scroll")}),$(".card-wrap").each(function(){var t=$("html").scrollTop()+.85*a>$(this).offset().top,e=$("html").scrollTop()>$(this).offset().top+$(this).height(),s=$("html").scrollTop()+.85*a<=$(this).offset().top;t&&$(this).removeClass("fadeOutDown").addClass("fadeInUp"),(e||s)&&$(this).removeClass("fadeInUp").addClass("fadeOutDown")})}),$(document).bind("mousewheel keydown",function(t){0<t.originalEvent.wheelDelta/120&&$("html").scrollTop()<=0?($("body").addClass("no_scroll"),$(".hero-zoomable-grid").addClass("active"),$("#scroll_down_text").css("opacity","0")):($("body").removeClass("no_scroll"),$(".hero-zoomable-grid").removeClass("active"),$("#scroll_down_text").css("opacity","1"))})});for(var x=12,i=0;i<x;i++){var w=i+1,u='<card data-image="./assets/images/content/tile_card_'+w+'.jpg"><h1 slot="header">Lorem Ipsum</h1><p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></card>';$("#app").append(u)}
+Vue.config.devtools = true;
+Vue.component('card', {
+    template: `
+    <div class="card-wrap"
+      @mousemove="handleMouseMove"
+      @mouseenter="handleMouseEnter"
+      @mouseleave="handleMouseLeave"
+      ref="card">
+      <div class="card"
+        :style="cardStyle">
+        <div class="card-bg" :style="[cardBgTransform, cardBgImage]"></div>
+        <div class="card-info">
+          <slot name="header"></slot>
+          <slot name="content"></slot>
+        </div>
+      </div>
+    </div>`,
+    mounted() {
+        this.width = this.$refs.card.offsetWidth;
+        this.height = this.$refs.card.offsetHeight;
+    },
+    props: ['dataImage'],
+    data: ()=>({
+        width: 0,
+        height: 0,
+        mouseX: 0,
+        mouseY: 0,
+        mouseLeaveDelay: null
+    }),
 
-    $(".preset_cls").mouseout(function() {
-        $(".preset_cls").removeClass("active")
-    })
-    $(".li_cls, .scroll_down img").on("click", function() {
-        var k = $(this).attr("data-target");
-        $('.li_cls').removeClass("active");
-        $(this).addClass("active");
-        $('html, body').animate({
-            scrollTop: $("#" + k).offset().top - ($(window).height() / 10)
-        }, 500);
-    })
+    computed: {
+        mousePX() {
+            return this.mouseX / this.width;
+        },
+        mousePY() {
+            return this.mouseY / this.height;
+        },
+        cardStyle() {
+            const rX = this.mousePX * 30;
+            const rY = this.mousePY * -30;
+            return {
+                transform: `rotateY(${rX}deg) rotateX(${rY}deg)`
+            };
 
-    $(document).on("scroll", function() {
-        offset_sect()
-    })
-    offset_sect();
-    function offset_sect() {
-        var window_h = $(window).height();
-        $(".section_cls").each(function() {
-            var w = ($('html').scrollTop() + (window_h / 2) > $(this).offset().top);
-            if (w) {
-                $(this).find(".container_cust ").addClass("fadeInDown");
-                $(".li_cls").removeClass("active");
-                $('.li_cls[data-target="' + $(this).attr('id') + '"]').addClass("active")
-                if ($(this).attr("id") == "section_2") {
-                    $(".preset_cls").removeClass("pre")
-                }
-                if ($(this).attr("id") == "section_3") {
-                    $(".tile_imgs").addClass("fadeInDown")
-                }
+        },
+        cardBgTransform() {
+            const tX = this.mousePX * -40;
+            const tY = this.mousePY * -40;
+            return {
+                transform: `translateX(${tX}px) translateY(${tY}px)`
+            };
 
+        },
+        cardBgImage() {
+            return {
+                backgroundImage: `url(${this.dataImage})`
+            };
+
+        }
+    },
+
+    methods: {
+        handleMouseMove(e) {
+            this.mouseX = e.pageX - this.$refs.card.offsetLeft - this.width / 2;
+            this.mouseY = e.pageY - this.$refs.card.offsetTop - this.height / 2;
+        },
+        handleMouseEnter() {
+            clearTimeout(this.mouseLeaveDelay);
+        },
+        handleMouseLeave() {
+            this.mouseLeaveDelay = setTimeout(()=>{
+                this.mouseX = 0;
+                this.mouseY = 0;
             }
-            // else {
-            //     $(this).find(".container_cust ").removeClass("fadeInDown");
-            //     $('.li_cls[data-target="'+$(this).attr('id')+'"]').removeClass("active")
-            //     if($(this).attr("id") == "section_2") {
-            //         $(".preset_cls").addClass("pre")
-            //    }
-            // }
-        })
-    }
-    var x = 12;
-    for (var i = 0; x > i; i++) {
-        var w = i + 1;
-        if (w <= 3 || w == 10) {
-            $('[tile="1"] .tile_cls').append('<img src="assets/images/content/tile_card_' + w + '.jpg" class="img_responsive tile_imgs animated">')
-        }
-        if (w <= 6 && w > 3 || w == 11) {
-            $('[tile="2"] .tile_cls').append('<img src="assets/images/content/tile_card_' + w + '.jpg" class="img_responsive tile_imgs animated">')
-        }
-        if (w <= 9 && w > 6 || w == 12) {
-            $('[tile="3"] .tile_cls').append('<img src="assets/images/content/tile_card_' + w + '.jpg" class="img_responsive tile_imgs animated">')
+            , 100);
         }
     }
+});
 
-    $('.tile_imgs').draggable({ // Make cards draggable
-        stack: '.tile_imgs', // Make dragged card appear above the others
-        revert: true // Make dragged card return to start position
-      })
+const app = new Vue({
+    el: '#app'
+});
+$(".card-wrap").addClass("animated");
+
+$('.card-wrap').draggable({
+    stack: '.card-wrap',
+    revert: true
 })
-    
